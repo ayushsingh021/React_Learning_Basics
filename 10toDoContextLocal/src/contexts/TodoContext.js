@@ -8,6 +8,7 @@ export const ToDoContext = createContext ({
             id : 1,
             todo :  "To Do msgs",
             completed : false,
+            priority : 0,
         }
     ],
     addToDo : (todo) =>{},

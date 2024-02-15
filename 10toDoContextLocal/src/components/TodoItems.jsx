@@ -21,7 +21,13 @@ function TodoItems({ todo }) {
       className={`flex border border-black/10 rounded-lg px-3 py-1.5 gap-x-3 shadow-sm shadow-white/50 duration-300  text-black ${
         todo.completed
           ? "bg-gradient-to-r from-teal-400 to-yellow-200"
-          : "bg-gradient-to-r from-violet-200 to-pink-200"
+          : `${
+              todo.prior === 0
+                ? "bg-gradient-to-r from-rose-400 to-red-500"
+                : todo.prior === 1
+                ? "bg-gradient-to-r from-fuchsia-600 to-purple-600"
+                : "bg-gradient-to-r from-lime-400 to-lime-500"
+            }`
       }`}
     >
       <input

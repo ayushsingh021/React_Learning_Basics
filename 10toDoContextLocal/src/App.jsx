@@ -7,9 +7,9 @@ import TodoItems from "./components/TodoItems";
 function App() {
   const [todos, setTodos] = useState([]); //all todos stores
 
-  const addToDo = (todo) => {
+  const addToDo = (todo, priority) => {
     //each todo is a object as defined in context
-    setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev]);
+    setTodos((prev) => [{ id: Date.now(), ...todo, ...priority }, ...prev]);
   };
 
   const updateToDo = (todo, id) => {
@@ -64,11 +64,14 @@ function App() {
           </div>
           <div className="flex flex-wrap gap-y-3">
             {/*Loop and Add TodoItem here */}
-            {todos.map((todo) => (
-              <div key={todo.id} className="w-full">
-                <TodoItems todo={todo} />
-              </div>
-            ))}
+
+            {todos
+              .sort((a, b) => a.prior - b.prior) // Sort todos based on prior
+              .map((todo) => (
+                <div key={todo.id} className="w-full">
+                  <TodoItems todo={todo} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
