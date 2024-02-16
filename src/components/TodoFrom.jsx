@@ -35,7 +35,7 @@ function TodoForm() {
       </form>
 
       <div>
-        <div className="flex flex-wrap items-center justify-center space-x-10">
+        <div className="flex flex-wrap items-center justify-center space-x-1">
           <h1 className=" font-bold bg-gradient-to-r from-teal-50 to-yellow-200 bg-clip-text text-transparent">
             Task Priority:
           </h1>
